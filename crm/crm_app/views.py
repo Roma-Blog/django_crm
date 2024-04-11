@@ -1,3 +1,4 @@
 from django.shortcuts import render
 
-# Create your views here.
+def list_clients(request): 
+    return render(request,'list_clients.html')
