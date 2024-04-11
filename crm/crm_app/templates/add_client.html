@@ -2,7 +2,11 @@
 {% block title %}Добавить клиента{% endblock title %}
 {% block h1 %}Добавить клиента{% endblock h1 %}
 {% block content %}
-
+<form method="POST" class='form-add'>
+    {% csrf_token %}
+    {{form}}
+    <input type="submit" value="Сохранить" class = 'btn' />
+</form>
 {% endblock content %}
 {% block content-bottom %}
 <a href='/list-clients/'>Назад</a>

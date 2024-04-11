@@ -2,7 +2,20 @@
 
 {% block title %}Список клиентов{% endblock title %}
 {% block h1 %}Список клиентов{% endblock h1 %}
-{% block content %}Контент{% endblock content %}
+{% block content %}
+    {% for client in clients %}
+        <ul class = 'list'>
+            <li class = 'item'>
+                <a href='/list-clients/{{client.id}}'>
+                    <h3>{{client.first_name}} {{client.last_name}}</h3>
+                </a>
+                <p>
+                    {{client.phone}}
+                </p>
+            </li>
+        </ul>
+    {% endfor %}
+{% endblock content %}
 {% block content-bottom %}
-<a href='/list-clients/add-client/'>Добавить клиента</a>
+    <a href='/list-clients/add-client/'>Добавить клиента</a>
 {% endblock content-bottom %}
