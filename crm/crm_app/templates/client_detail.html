@@ -3,17 +3,22 @@
 {% block title %}{{client.first_name}} {{client.last_name}}{% endblock title %}
 {% block h1 %}{{client.first_name}} {{client.last_name}}{% endblock h1 %}
 {% block content %}
-    <p>
-        {{client.birthday}}
-    </p>
-    <p>
-        {{client.phone}}
-    </p>
-    <p>
-        {{client.email}}
-    </p>
+    {{id}}
+    <dl class="dl-inline">
+        <dt class="dt-dotted">День рождения:</dt>
+        <dd>{{client.birthday}}</dd>
+    </dl>
+    <dl class="dl-inline">
+        <dt class="dt-dotted">Телефон:</dt>
+        <dd>{{client.phone}}</dd>
+    </dl>
+    <dl class="dl-inline">
+        <dt class="dt-dotted">Почта:</dt>
+        <dd>{{client.email}}</dd>
+    </dl>
 {% endblock content %}
-{% block content-bottom %}
-    <a href='/list-clients/add-client/'>Редактировать</a>
-    <a href='/list-clients/add-client/'>Удалить</a>
-{% endblock content-bottom %}
+{% block content_bottom %}
+    <a href='{% url "list-clients"%}'>Назад к списку</a>
+    <a href='{% url "edit-client" client.id %}'>Редактировать</a>
+    <a href='{% url "delete-client" client.id %}'>Удалить</a>
+{% endblock content_bottom %}

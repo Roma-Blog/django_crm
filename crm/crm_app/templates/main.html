@@ -16,15 +16,26 @@
                 </a>
             </div>
         </header>
+    </div>
+    <div class='bg-main'>
+        
         <div class='cont'>
             <h1>{% block h1 %}{% endblock h1 %}</h1>
+            <div class='content-top'>
+                {% block content_top %}{% endblock content_top %}
+            </div>
             <div class='content'>
                 {% block content %}{% endblock content %}
             </div>
             <div class='content-bottom'>
-                {% block content-bottom %}{% endblock content-bottom %}
+                {% block content_bottom %}{% endblock content_bottom %}
             </div>
         </div>
+    </div>
+    <div class='bg-main'>
+        <footer>
+            <i>"crm косметология"</i>
+        </footer>
     </div>
 </body>
 </html>

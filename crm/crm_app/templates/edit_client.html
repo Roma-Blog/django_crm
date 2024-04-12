@@ -1,6 +1,6 @@
 {% extends "main.html" %}
-{% block title %}Добавить клиента{% endblock title %}
-{% block h1 %}Добавить клиента{% endblock h1 %}
+{% block title %}Редактировать информацию о клиенте{% endblock title %}
+{% block h1 %}Редактировать информацию о клиенте{% endblock h1 %}
 {% block content %}
 <form method="POST" class='form-add'>
     {% csrf_token %}
@@ -9,5 +9,5 @@
 </form>
 {% endblock content %}
 {% block content_bottom %}
-    <a href='{% url "list-clients"%}'>Назад к списку</a>
+    <a href='{% url "client-detail" id %}'>Назад</a>
 {% endblock content_bottom %}

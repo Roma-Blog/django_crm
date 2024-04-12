@@ -1,21 +1,30 @@
 {% extends 'main.html' %}
-
+{% load static %}
 {% block title %}Список клиентов{% endblock title %}
 {% block h1 %}Список клиентов{% endblock h1 %}
+{% block content_top %}
+    <a href='{% url "add-client" %}'>Добавить клиента</a>
+{% endblock content_top %}
 {% block content %}
     {% for client in clients %}
         <ul class = 'list'>
             <li class = 'item'>
-                <a href='/list-clients/{{client.id}}'>
-                    <h3>{{client.first_name}} {{client.last_name}}</h3>
-                </a>
-                <p>
-                    {{client.phone}}
-                </p>
+                <div class='item-box-left'>
+                    <a href='{% url "client-detail" client.id %}'>
+                        <h3>{{client.first_name}} {{client.last_name}}</h3>
+                    </a>
+                    <div class='item-birthday'>{{client.birthday}}</div>
+                    <div class='item-id'>id: {{client.id}}</div>
+                </div>
+                <div class='item-box-right'>
+                    <a href='{% url "edit-client" client.id %}'>
+                        <img src='{% static "icon/edit.svg" %}'>
+                    </a>
+                    <a href='{% url "delete-client" client.id %}'>
+                        <img src='{% static "icon/delete.svg" %}'>
+                    </a>
+                </div>
             </li>
         </ul>
     {% endfor %}
 {% endblock content %}
-{% block content-bottom %}
-    <a href='/list-clients/add-client/'>Добавить клиента</a>
-{% endblock content-bottom %}
