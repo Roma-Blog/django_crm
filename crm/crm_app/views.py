@@ -13,7 +13,7 @@ def list_clients(request):
     page_number = request.GET.get('page')
     page_objects = paginator.get_page(page_number)
 
-    context = {'search':search, 'page_objects':page_objects}
+    context = {'search':search, 'page_objects':page_objects, }
     return render(request,'list_clients.html', context)
 
 def add_client(request):

@@ -145,3 +145,6 @@ dt{
 dd{
     padding-left: 8px;
 }
+.paginator-item{
+    list-style: none;
+}

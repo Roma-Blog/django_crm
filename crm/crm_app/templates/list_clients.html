@@ -33,11 +33,17 @@
     {% endfor %}
 {% endblock content %}
 {% block content_bottom %}
-{% for p in page_objects.paginator.page_range %}
-        <ul>
-            <li>
-                <a href="?page={{ p }}">{{ p }}</a>
+{% if page_objects.has_other_pages %}
+    {% for p in page_objects.paginator.page_range %}
+        <ul class='paginator-list'>
+            <li class='paginator-item'>
+                {% if page_objects.number == p %}
+                    {{ p }}
+                {% else %}
+                    <a href="?{% if search %}search={{search}}{% endif %}&page={{ p }}">{{ p }}</a>
+                {% endif %}
             </li>
         </ul>
-{% endfor %}
+    {% endfor %}
+{% endif %}
 {% endblock content_bottom %}
