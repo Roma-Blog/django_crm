@@ -16,6 +16,10 @@
         <dt class="dt-dotted">Почта:</dt>
         <dd>{{client.email}}</dd>
     </dl>
+    <dl class="dl-inline">
+        <dt class="dt-dotted">Комментарии и особенности клиента:</dt>
+        <dd>{{client.comments}}</dd>
+    </dl>
 {% endblock content %}
 {% block content_bottom %}
     <a href='{% url "list-clients"%}'>Назад к списку</a>

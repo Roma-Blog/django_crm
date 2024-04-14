@@ -3,10 +3,14 @@
 {% block title %}Список клиентов{% endblock title %}
 {% block h1 %}Список клиентов{% endblock h1 %}
 {% block content_top %}
+    <form action="{% url "list-clients" %}" method="get">
+        <input type="text" name="search" placeholder="Поиск" value="{% if search %}{{search}}{% endif %}">
+        <input type="submit" value="Поиск">
+    </form>
     <a href='{% url "add-client" %}'>Добавить клиента</a>
 {% endblock content_top %}
 {% block content %}
-    {% for client in clients %}
+    {% for client in page_objects %}
         <ul class = 'list'>
             <li class = 'item'>
                 <div class='item-box-left'>
@@ -28,3 +32,12 @@
         </ul>
     {% endfor %}
 {% endblock content %}
+{% block content_bottom %}
+{% for p in page_objects.paginator.page_range %}
+        <ul>
+            <li>
+                <a href="?page={{ p }}">{{ p }}</a>
+            </li>
+        </ul>
+{% endfor %}
+{% endblock content_bottom %}

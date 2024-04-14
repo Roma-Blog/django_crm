@@ -38,6 +38,8 @@ p{
 .header{
     padding: 16px 0;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .logo{
     background-color: #29517c;
@@ -50,6 +52,13 @@ p{
     font-weight: bold;
     font-size: 24px;
 }
+.nav-list{
+    display: flex;
+}
+.nav-item{
+    margin-left: 16px;
+    list-style: none;
+}
 .form-add div{
     padding: 8px 0;
     display: flex;
@@ -60,6 +69,13 @@ p{
 }
 
 .form-add input{
+    display: block;
+    padding: 4px 8px;
+    border: solid 1px #bacfe4;
+    width: 70%;
+    border-radius: 5px;
+}
+.form-add textarea{
     display: block;
     padding: 4px 8px;
     border: solid 1px #bacfe4;
