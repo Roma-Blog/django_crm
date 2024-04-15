@@ -10,6 +10,11 @@ urlpatterns = [
     path('list-clients/<int:id>/edit/', views.clients_edit, name='edit-client'),
     path('list-clients/<int:id>/delete/', views.clients_delete, name='delete-client'),
 
+    path('list-services/', views.list_services, name='list-services'),
+    path('list-services/add-service/', views.add_service, name='add-service'),
+    path('list-services/<int:id>/edit/', views.service_edit, name='edit-service'),
+    path('list-services/<int:id>/delete/', views.service_delete, name='service-delete'),
+
     # path('list-masters/', views.list_masters, name='list-masters'),
     # path('list-masters/add-masters/', views.add_masters, name='add-masters'),
     # path('list-masters/<int:id>/', views.masters_detail, name='masters-detail'),

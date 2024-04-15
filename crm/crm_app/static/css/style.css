@@ -145,6 +145,44 @@ dt{
 dd{
     padding-left: 8px;
 }
+.list-content-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+.link-add{
+    display: flex;
+    align-items: center;
+}
+.link-add img{
+    padding-right: 8px;
+}
+.form-search{
+    display: block;
+}
+.form-input{
+    padding: 4px 8px;
+    border: solid 1px #bacfe4;
+    border-radius: 5px;
+}
+.form-btn{
+    padding: 4px 8px;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #29517c;
+    border: none;
+}
+.list-content-bottom{
+    padding-top: 32px;
+    display: flex;
+    justify-content: center;
+}
+.paginator-list{
+    display: flex;
+}
 .paginator-item{
     list-style: none;
+    margin-left: 16px;
+    color: #bacfe4;
 }

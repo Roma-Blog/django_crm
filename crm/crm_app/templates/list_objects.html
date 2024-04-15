@@ -1,0 +1,32 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block title %}{% endblock title %}
+{% block h1 %}{% endblock h1 %}
+{% block content %}
+    <div class='list-content-top'>
+        <form class='form-search' action="{% block url_search %}{% endblock url_search %}" method="get">
+            <input class='form-input' type="text" name="search" placeholder="Поиск" value="{% if search %}{{search}}{% endif %}">
+            <input class='form-btn' type="submit" value="Поиск">
+        </form>
+        <a class='link-add' href='{% block url_add %}{% endblock url_add %}'>
+            <img src="{% static 'icon/add.svg' %}">
+            <span>Добавить</span>
+        </a>
+    </div>
+    {% block list %}{% endblock list %}
+    <div class='list-content-bottom'>
+        {% if page_objects.has_other_pages %}
+            {% for p in page_objects.paginator.page_range %}
+                <ul class='paginator-list'>
+                    <li class='paginator-item'>
+                        {% if page_objects.number == p %}
+                            {{ p }}
+                        {% else %}
+                            <a href="?{% if search %}search={{search}}{% endif %}&page={{ p }}">{{ p }}</a>
+                        {% endif %}
+                    </li>
+                </ul>
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endblock content %}

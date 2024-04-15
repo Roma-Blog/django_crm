@@ -1,0 +1,30 @@
+{% extends "list_objects.html" %}
+{% load static %}
+
+{% block title %}Список услуг{% endblock title %}
+{% block h1 %}Список услуги{% endblock h1 %}
+
+{% block url_search %}{% url "list-services" %}{% endblock url_search %}
+{% block url_add %}{% url "add-service" %}{% endblock url_add %}
+
+{% block list %}
+    {% for service in page_objects %}
+        <ul class = 'list'>
+            <li class = 'item'>
+                <div class='item-box-left'>
+                    <h3>{{service.name_service}}</h3>
+                    <div class='item-birthday'>{{service.price}} руб.</div>
+                    <div class='item-id'>id: {{service.id}}</div>
+                </div>
+                <div class='item-box-right'>
+                    <a href='{% url "edit-service" service.id %}'>
+                        <img src='{% static "icon/edit.svg" %}'>
+                    </a>
+                    <a href='{% url "service-delete" service.id %}'>
+                        <img src='{% static "icon/delete.svg" %}'>
+                    </a>
+                </div>
+            </li>
+        </ul>
+    {% endfor %}
+{% endblock list %}

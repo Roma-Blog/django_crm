@@ -1,15 +1,13 @@
-{% extends 'main.html' %}
+{% extends "list_objects.html" %}
 {% load static %}
+
 {% block title %}Список клиентов{% endblock title %}
 {% block h1 %}Список клиентов{% endblock h1 %}
-{% block content_top %}
-    <form action="{% url "list-clients" %}" method="get">
-        <input type="text" name="search" placeholder="Поиск" value="{% if search %}{{search}}{% endif %}">
-        <input type="submit" value="Поиск">
-    </form>
-    <a href='{% url "add-client" %}'>Добавить клиента</a>
-{% endblock content_top %}
-{% block content %}
+
+{% block url_search %}{% url "list-clients" %}{% endblock url_search %}
+{% block url_add %}{% url "add-client" %}{% endblock url_add %}
+
+{% block list %}
     {% for client in page_objects %}
         <ul class = 'list'>
             <li class = 'item'>
@@ -31,19 +29,4 @@
             </li>
         </ul>
     {% endfor %}
-{% endblock content %}
-{% block content_bottom %}
-{% if page_objects.has_other_pages %}
-    {% for p in page_objects.paginator.page_range %}
-        <ul class='paginator-list'>
-            <li class='paginator-item'>
-                {% if page_objects.number == p %}
-                    {{ p }}
-                {% else %}
-                    <a href="?{% if search %}search={{search}}{% endif %}&page={{ p }}">{{ p }}</a>
-                {% endif %}
-            </li>
-        </ul>
-    {% endfor %}
-{% endif %}
-{% endblock content_bottom %}
+{% endblock list %}

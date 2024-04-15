@@ -14,5 +14,9 @@ class Master(models.Model):
     phone = models.CharField(max_length = 15, verbose_name='Телефон')
     name_service = models.CharField(max_length = 100, verbose_name='Название услуги')
 
+class Service(models.Model):
+    name_service = models.CharField(max_length = 100, verbose_name='Название услуги')
+    price = models.FloatField(verbose_name='Цена')
+
 
      
